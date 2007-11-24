@@ -9,13 +9,12 @@ use File::Spec;
 use Getopt::Attribute;
 use HTML::FormatText;
 use HTML::TreeBuilder;
-use LWP::Simple;
+use LWP::UserAgent::ProgressBar;
 use Pod::Usage;
 use Web::Scraper;
-use URI;
 
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 
 sub usage ($;$$) {
@@ -34,6 +33,14 @@ sub usage ($;$$) {
         -verbose => $verbose,
         -output  => \*STDERR
     });
+}
+
+
+sub get {
+    my $url = shift;
+    my $response = LWP::UserAgent::ProgressBar->new->get_with_progress($url);
+    $response->is_success or die "couldn't get $url\n";
+    $response->content;
 }
 
 
@@ -66,8 +73,11 @@ my $scraper = scraper {
     };
 };
 
-$verbose && print "Downloading and scraping $uri...\n";
-my $result = $scraper->scrape(URI->new($uri));
+$verbose && print "Downloading $uri...\n";
+my $html = get($uri);
+
+$verbose && print "Scraping information...\n";
+my $result = $scraper->scrape(\$html);
 
 $verbose && print "Creating directory $base_dir...\n";
 mkpath($base_dir);
@@ -108,7 +118,6 @@ for my $dist (@{ $result->{dist} || [] }) {
 
         $verbose && print "Downloading $fail->{url}...\n";
         my $content = get($fail->{url});
-        defined $content || die "couldn't get $fail->{url}\n";
 
         open my $fh, '>', $filename or
             die "can't open $filename for writing: $!\n";

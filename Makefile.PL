@@ -8,9 +8,8 @@ perl_version '5.006';
 requires 'Getopt::Attribute';
 requires 'HTML::FormatText';
 requires 'HTML::TreeBuilder';
-requires 'LWP::Simple';
+requires 'LWP::UserAgent::ProgressBar';
 requires 'Web::Scraper';
-requires 'URI';
 
 build_requires 'Test::More' => '0.70';
 

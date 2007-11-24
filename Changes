@@ -4,6 +4,13 @@ global:
 releases:
   - author: 'Marcel Gruenauer <marcel@cpan.org>'
     changes:
+      - set the version to 0.04
+      - now uses LWP::UserAgent::ProgressBar
+    date: 2007-11-24T21:48:58Z
+    tags: []
+    version: 0.04
+  - author: 'Marcel Gruenauer <marcel@cpan.org>'
+    changes:
       - set the version to 0.03
       - 'fixed bug in how directories are deleted - before, the whole base dir was deleted'
     date: 2007-11-24T16:39:38Z
