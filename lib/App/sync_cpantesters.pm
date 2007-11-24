@@ -4,7 +4,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 1;
@@ -34,7 +34,7 @@ please use the C<appsync_cpantesters> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.01 of L<App::sync_cpantesters>.
+This document describes version 0.02 of L<App::sync_cpantesters>.
 
 =head1 BUGS AND LIMITATIONS
 

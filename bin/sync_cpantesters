@@ -15,7 +15,7 @@ use Web::Scraper;
 use URI;
 
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 sub usage ($;$$) {
@@ -129,11 +129,11 @@ find(sub {
         return if /^\.+$/;
         return if $report{dir}{ $File::Find::name };
         $verbose && print "Deleting directory $File::Find::name\n";
-        # rmtree($File::Find::dir);
+        rmtree($File::Find::dir);
     } elsif (-f) {
         return if $report{file}{ $File::Find::name };
         $verbose && print "Deleting file $File::Find::name\n";
-        # unlink $File::Find::name;
+        unlink $File::Find::name;
     }
 }, $base_dir);
 
