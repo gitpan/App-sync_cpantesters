@@ -1,21 +1,54 @@
-use inc::Module::Install;
-include 'Module::AutoInstall';
 
-name 'App-sync_cpantesters';
-all_from 'lib/App/sync_cpantesters.pm';
-perl_version '5.006';
+use strict;
+use warnings;
 
-requires 'Getopt::Attribute';
-requires 'HTML::FormatText';
-requires 'HTML::TreeBuilder';
-requires 'LWP::UserAgent::ProgressBar';
-requires 'Web::Scraper';
+ BEGIN { require 5.006; } 
 
-test_requires 'Test::More' => '0.70';
-extra_tests;
+use ExtUtils::MakeMaker 6.11;
 
-install_script glob('bin/*');
 
-auto_install;
-auto_include;
-WriteAll;
+
+my %WriteMakefileArgs = (
+                       'test' => {
+                                   'TESTS' => 't/*.t'
+                                 },
+                       'NAME' => 'App::sync_cpantesters',
+                       'DISTNAME' => 'App-sync_cpantesters',
+                       'CONFIGURE_REQUIRES' => {
+                                                 'ExtUtils::MakeMaker' => '6.11'
+                                               },
+                       'AUTHOR' => 'Marcel Gruenauer <marcel@cpan.org>',
+                       'BUILD_REQUIRES' => {},
+                       'ABSTRACT' => 'Sync CPAN testers failure reports to local directories',
+                       'EXE_FILES' => [
+                                        'bin/sync_cpantesters'
+                                      ],
+                       'VERSION' => '1.100710',
+                       'PREREQ_PM' => {
+                                        'Scalar::Util' => '0',
+                                        'English' => '0',
+                                        'Pod::Usage' => '0',
+                                        'File::Spec' => '0',
+                                        'HTML::TreeBuilder' => '0',
+                                        'HTML::FormatText' => '0',
+                                        'Carp' => '0',
+                                        'Test::More' => '0',
+                                        'File::Find' => '0',
+                                        'LWP::UserAgent::ProgressBar' => '0',
+                                        'Web::Scraper' => '0',
+                                        'File::Temp' => '0',
+                                        'File::Path' => '0',
+                                        'Getopt::Attribute' => '0',
+                                        'Cwd' => '0'
+                                      },
+                       'LICENSE' => 'perl'
+                     );
+
+
+delete $WriteMakefileArgs{LICENSE}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.31) };
+
+WriteMakefile(%WriteMakefileArgs);
+
+
+
