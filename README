@@ -3,7 +3,7 @@ NAME
     directories
 
 VERSION
-    version 1.100710
+    version 1.100830
 
 SYNOPSIS
         # sync_cpantesters -a MARCEL -d ~/dev/cpan-testers
@@ -74,6 +74,12 @@ COMMAND-LINE OPTIONS
     "--dir" <dir>, "-d" <dir>
         The directory you want to download the reports to. This can be a
         relative or absolute path. This argument is mandatory.
+
+    "--ignore" <regex>, "-i" <regex>
+        If this argument is given, then every distribution whose name
+        matches this regular expression is ignored. You might use this when
+        you have deprecated distributions that you don't care about anymore,
+        but the reports are still there.
 
     "--verbose", "-v"
         Be more verbose.

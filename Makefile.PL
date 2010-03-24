@@ -23,7 +23,7 @@ my %WriteMakefileArgs = (
                        'EXE_FILES' => [
                                         'bin/sync_cpantesters'
                                       ],
-                       'VERSION' => '1.100710',
+                       'VERSION' => '1.100830',
                        'PREREQ_PM' => {
                                         'Scalar::Util' => '0',
                                         'English' => '0',
@@ -32,7 +32,7 @@ my %WriteMakefileArgs = (
                                         'HTML::TreeBuilder' => '0',
                                         'HTML::FormatText' => '0',
                                         'Carp' => '0',
-                                        'Test::More' => '0',
+                                        'Test::More' => '0.88',
                                         'File::Find' => '0',
                                         'LWP::UserAgent::ProgressBar' => '0',
                                         'Web::Scraper' => '0',
