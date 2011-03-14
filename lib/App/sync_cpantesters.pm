@@ -3,8 +3,12 @@ use warnings;
 use strict;
 
 package App::sync_cpantesters;
+BEGIN {
+  $App::sync_cpantesters::VERSION = '1.110730';
+}
 # ABSTRACT: Sync CPAN testers failure reports to local directories
 
+use open qw(:utf8);
 use Cwd 'abs_path';
 use File::Find;
 use File::Path;
@@ -15,7 +19,6 @@ use HTML::TreeBuilder;
 use LWP::UserAgent::ProgressBar;
 use Pod::Usage;
 use Web::Scraper;
-our $VERSION = '0.05';
 
 sub usage ($;$$) {
     my ($message, $exitval, $verbose) = @_;
@@ -144,7 +147,7 @@ App::sync_cpantesters - Sync CPAN testers failure reports to local directories
 
 =head1 VERSION
 
-version 1.100830
+version 1.110730
 
 =head1 SYNOPSIS
 
@@ -258,17 +261,16 @@ L<http://rt.cpan.org/Public/Dist/Display.html?Name=App-sync_cpantesters>.
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
-site near you, or see
-L<http://search.cpan.org/dist/App-sync_cpantesters/>.
+site near you, or see L<http://search.cpan.org/dist/App-sync_cpantesters/>.
 
-The development version lives at
-L<http://github.com/hanekomu/App-sync_cpantesters/>.
-Instead of sending patches, please fork this project using the standard git
-and github infrastructure.
+The development version lives at L<http://github.com/hanekomu/App-sync_cpantesters>
+and may be cloned from L<git://github.com/hanekomu/App-sync_cpantesters.git>.
+Instead of sending patches, please fork this project using the standard
+git and github infrastructure.
 
 =head1 AUTHOR
 
-  Marcel Gruenauer <marcel@cpan.org>
+Marcel Gruenauer <marcel@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

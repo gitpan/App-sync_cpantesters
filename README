@@ -3,7 +3,7 @@ NAME
     directories
 
 VERSION
-    version 1.100830
+    version 1.110730
 
 SYNOPSIS
         # sync_cpantesters -a MARCEL -d ~/dev/cpan-testers
@@ -104,12 +104,13 @@ AVAILABILITY
     <http://search.cpan.org/dist/App-sync_cpantesters/>.
 
     The development version lives at
-    <http://github.com/hanekomu/App-sync_cpantesters/>. Instead of sending
+    <http://github.com/hanekomu/App-sync_cpantesters> and may be cloned from
+    <git://github.com/hanekomu/App-sync_cpantesters.git>. Instead of sending
     patches, please fork this project using the standard git and github
     infrastructure.
 
 AUTHOR
-      Marcel Gruenauer <marcel@cpan.org>
+    Marcel Gruenauer <marcel@cpan.org>
 
 COPYRIGHT AND LICENSE
     This software is copyright (c) 2007 by Marcel Gruenauer.
