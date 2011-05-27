@@ -4,7 +4,7 @@
       "Marcel Gruenauer <marcel@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110580",
+   "generated_by" : "Dist::Zilla version 4.200006, CPAN::Meta::Converter version 2.110930",
    "license" : [
       "perl_5"
    ],
@@ -16,23 +16,22 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.31"
+            "ExtUtils::MakeMaker" : "6.30"
          }
       },
       "runtime" : {
          "requires" : {
-            "Cwd" : 0,
+            "Class::Accessor::Lite" : 0,
+            "Class::Trigger" : 0,
             "File::Find" : 0,
             "File::Path" : 0,
-            "File::Spec" : 0,
-            "Getopt::Attribute" : 0,
+            "Getopt::Long" : 0,
             "HTML::FormatText" : 0,
             "HTML::TreeBuilder" : 0,
             "LWP::UserAgent::ProgressBar" : 0,
-            "Pod::Usage" : 0,
             "Web::Scraper" : 0,
             "open" : 0,
-            "perl" : "5.006"
+            "perl" : "5.010"
          }
       },
       "test" : {
@@ -48,7 +47,7 @@
    "provides" : {
       "App::sync_cpantesters" : {
          "file" : "lib/App/sync_cpantesters.pm",
-         "version" : "1.110730"
+         "version" : "1.111470"
       }
    },
    "release_status" : "stable",
@@ -64,6 +63,6 @@
          "web" : "http://github.com/hanekomu/App-sync_cpantesters"
       }
    },
-   "version" : "1.110730"
+   "version" : "1.111470"
 }
 

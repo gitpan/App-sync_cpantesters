@@ -2,9 +2,9 @@
 use strict;
 use warnings;
 
-BEGIN { require 5.006; }
+BEGIN { require 5.010; }
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
@@ -19,7 +19,7 @@ my %WriteMakefileArgs = (
     'Test::More' => '0.94'
   },
   'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31'
+    'ExtUtils::MakeMaker' => '6.30'
   },
   'DISTNAME' => 'App-sync_cpantesters',
   'EXE_FILES' => [
@@ -28,19 +28,18 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'App::sync_cpantesters',
   'PREREQ_PM' => {
-    'Cwd' => '0',
+    'Class::Accessor::Lite' => '0',
+    'Class::Trigger' => '0',
     'File::Find' => '0',
     'File::Path' => '0',
-    'File::Spec' => '0',
-    'Getopt::Attribute' => '0',
+    'Getopt::Long' => '0',
     'HTML::FormatText' => '0',
     'HTML::TreeBuilder' => '0',
     'LWP::UserAgent::ProgressBar' => '0',
-    'Pod::Usage' => '0',
     'Web::Scraper' => '0',
     'open' => '0'
   },
-  'VERSION' => '1.110730',
+  'VERSION' => '1.111470',
   'test' => {
     'TESTS' => 't/*.t'
   }

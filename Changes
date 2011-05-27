@@ -1,5 +1,11 @@
 Revision history for Perl extension App-sync_cpantesters
 
+1.111470  2011-05-27 22:35:40 Europe/Vienna
+    - separated command-line processing into bin/sync_cpantesters
+    - the module has been turned into a class; the former options are now
+      accessors
+    - added a trigger 'dist.filter', per Class::Trigger
+
 1.110730  2011-03-14 10:49:24 Europe/Vienna
     - get rid of "Wide character in print at ..." (thanks trapd00r)
 

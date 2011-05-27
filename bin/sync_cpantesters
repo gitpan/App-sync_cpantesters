@@ -1,10 +1,43 @@
 #!/usr/bin/env perl
 use warnings;
 use strict;
+
 # PODNAME: sync_cpantesters
 # ABSTRACT: Sync CPAN testers failure reports to local directories
+use Getopt::Long;
 use App::sync_cpantesters;
-App::sync_cpantesters->run;
+GetOptions(
+    'uri|u=s'    => \my $uri,
+    'author|a=s' => \my $author,
+    'dir|d=s'    => \my $base_dir,
+    'verbose|v'  => \my $verbose,
+    'ignore|i'   => \my $ignore,
+    'help|h'     => sub { exit usage() },
+) or do { exit usage() };
+App::sync_cpantesters->new(
+    uri      => $uri,
+    author   => $author,
+    base_dir => $base_dir,
+    verbose  => $verbose,
+    ignore   => $ignore,
+)->run;
+
+sub usage {
+    print <<END;
+usage: [perl] nytprofhtml [opts]
+ --author, -a <cpanid>  Download reports for this author (e.g., "MARCEL")
+ --uri, -u <uri>        Download reports from this URI
+ --dir, -d <dir>        Where to download reports to (does tilde expansion)
+ --ignore, -i <regex>   Ignore distribution names matching this regular expression
+ --verbose, -v          Be more verbose
+ --help, -h             Print this message
+
+You have to use exactly one of C<--author> or C<--uri>.
+
+See 'perldoc App::sync_cpantesters' for details and copyright.
+END
+    return 1;
+}
 
 __END__
 =pod
@@ -15,7 +48,7 @@ sync_cpantesters - Sync CPAN testers failure reports to local directories
 
 =head1 VERSION
 
-version 1.110730
+version 1.111470
 
 =head1 INSTALLATION
 
